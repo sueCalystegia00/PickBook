@@ -1,26 +1,24 @@
 <template>
   <div class="book">
-    <div id="searchArea">
-      <form>
-        <input type="search" placeholder="商品名で検索">
-        <input type="submit" value="検索">
+    <div class="headerRec">
+      <form id="searchArea">
+        <input type="search" placeholder=" 🔎商品名で検索">
       </form>
-    </div>
-    <div class="title">
-      <h2>カテゴリー</h2>
-    </div>
 
-    <div class="tab">
-      <button v-for="(tab, index) in tabs"
-              :key="tab.id"
-              :class="{ active: currentTab === index }"
-              @click="currentTab = index">
-        {{ tab.tabName }}
-      </button>
+      <h2>カテゴリー</h2>
+    
+      <div class="tab">
+        <button v-for="(tab, index) in tabs"
+                :key="tab.id"
+                :class="{ active: currentTab === index }"
+                @click="currentTab = index">
+          {{ tab.tabName }}
+        </button>
+      </div>
     </div>
 
     <div id="productsBox">
-      <div v-show="currentTab === 0">
+      <div class="wrapper" v-show="currentTab === 0">
         <Product  v-for="product in products"
                   :key="product.id"
                   v-bind:name="product.name"
@@ -54,6 +52,90 @@
   </div>
 </template>
 
+<style scoped>
+.book
+{
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.headerRec
+{
+  position: relative;
+  background: #FFFFFF;
+  width: 90%;
+  height: 120px;
+  border-radius: 0 200px 0 0;
+  padding: 5% 5vw 0 5%;
+}
+#searchArea
+{
+  position: relative;
+  width: 48%;
+  height: 24%;
+}
+input{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 13px;
+  border: none;
+  outline: none;
+  padding: 0 15px 0 15px;
+}
+h2
+{
+  font-size: 1.5em;
+  line-height: 33px;
+}
+.tab
+{
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+div.tab button
+{
+  position: static;
+  display: inline-block;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  background: none;
+  padding: 0;
+  margin-right: 15px;
+}
+div.tab .active
+{
+  border-bottom: 2px solid #4B4B4B;
+}
+
+#productsBox
+{
+  position: relative;
+  width: 90%;
+  padding: 5% 5vw 5vw 5%;
+}
+
+#productsBox .wrapper
+{
+  width: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+</style>
+
 <script>
 import Product from '@/components/Product.vue'
 
@@ -66,7 +148,6 @@ export default {
     return {
       currentTab: 0,
       id: 0,
-      tabName: "",
       tabs: [
         {id: 1, tabName: 'すべて'},
         {id: 2, tabName: 'お茶'},
@@ -113,8 +194,3 @@ export default {
   }
 }
 </script>
-
-
-<style scoped>
-
-</style>

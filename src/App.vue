@@ -1,28 +1,29 @@
 <template>
   <div id="app">
+    <div id="background"></div>
     <router-view/>
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+html, body, #app {
+  font-family: 'ヒラギノ角ゴシック','Hiragino Sans','Avenir','Arial',sans-serif;
+  font-size: 14px;
+  width: 100%;
+  min-width: 320px;
+  margin: 0;
+  padding: 0;
+  color: #4B4B4B;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#background
+{
+  position: fixed;
+  background: linear-gradient(180deg, rgba(227, 238, 255, 0.6) 0%, rgba(241, 232, 236, 0.6) 99.99%, rgba(243, 231, 233, 0) 100%, rgba(243, 231, 233, 0.6) 100%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -9999;
 }
 </style>

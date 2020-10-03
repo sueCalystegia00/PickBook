@@ -1,7 +1,8 @@
 <template>
   <div class="product">
-    
-    <h1>{{ name }}</h1>
+    <div class="rect">
+      <p>{{ name }}</p>
+    </div>
   </div>
 </template>
 
@@ -15,6 +16,15 @@ export default {
 </script>
 
 
-<style scoped>
-
+<style>
+.product
+{
+  width: 47%;
+}
+.rect
+{
+  width : 100% ;
+  padding-bottom : 100% ;
+  background-color: #FFFFFF;
+}
 </style>
